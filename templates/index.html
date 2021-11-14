@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Test junior Datascientis</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Welcome to your investment guide</h1>
+	
+     <h3> Enter the following values to predict if you should invest on this player or not </h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+	<div id="column1">
+    		<input type="text" name="GP" placeholder="Games Played" required="required" />
+        	<input type="text" name="MIN" placeholder="Minutes Played" required="required" />
+	
+		<input type="text" name="PTS" placeholder="Points Per Game" required="required" />
+		<input type="text" name="FGM" placeholder="Field Goals Made" required="required" />
+        	<input type="text" name="3PMade" placeholder="3 Point Made" required="required" />
+		<input type="text" name="3P%" placeholder="3 Point %" required="required" />
+		<input type="text" name="FT%" placeholder="Free Throw %" required="required" />
+        	<input type="text" name="OREB" placeholder="Offensive Rebounds" required="required" />
+		<input type="text" name="REB" placeholder="Rebounds"  required="required" />
+		<input type="text" name="AST" placeholder="Assists" required="required" />
+        	<input type="text" name="STL" placeholder="Steals" required="required" />
+		<input type="text" name="BLK" placeholder="Blocks" required="required" />
+	</div>
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
